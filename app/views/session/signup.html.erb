@@ -1,0 +1,43 @@
+    <header class="masthead" style="background-image: url(<%= image_path 'img/contact-bg.jpg'%>)">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Contact Me</h1>
+              <span class="subheading">IMAGINATION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Make your blog post!</p>
+          <div class="form-group">
+  	<%= form_for @user, controller: 'users', action: 'create' do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+
+	<%= f.label :password %>
+	<%= f.text_field :password %>
+	
+	<%= f.label :password_confirmation %>
+	<%= f.text_field :password_confirmation %>
+
+	<%= f.submit "create" %>
+
+            </div>
+   
+
+</div>
+</div>
+</div>
+<% end %>
+	
+	

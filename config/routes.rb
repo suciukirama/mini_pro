@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'session/new'
+  get 'session/signup'
+  get 'session/create'
   resources :post_blogs
   get 'post/show'
   get 'post/index'
@@ -13,9 +16,8 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/sample_blog_post', to: 'pages#post'  
 
-  get '/login', to: 'session#new'
-  post '/login', to: 'session#create'
+  get '/login', to: 'users#login2'
+  post '/login', to: 'users#create2'
   get '/logout', to: 'session#destroy'
   get '/signup', to: 'session#destroy'
-
 end
