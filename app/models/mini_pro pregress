@@ -1,0 +1,12 @@
+user:
+- index dibuat tabel, jangan tampilin id. tampilin nomor urutan data
+- user validasi
+	- nama: harus ada, panjang max 255
+	- email: harus ada, panjang max 255, email ga boleh sama
+
+
+blog_post
+- index pake table, isinya no, title, summary (content sama image gausah ditampilin di index)
+- show gambar header di ganti sama image_url, judulnya ditaro di "Contact Me"
+- form validasi: title harus ada max 255, summary harus ada max 255. content harus ada, image boleh kosong.
+- kalo image ada gambar header show diganti sama image_url, kalo kosong kasih gambar default

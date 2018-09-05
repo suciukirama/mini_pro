@@ -1,4 +1,31 @@
+ <!-- Page Header -->
+    <header class="masthead" style="background-image: url(<%= image_path 'img/contact-bg.jpg'%>)">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Contact Me</h1>
+              <span class="subheading">IMAGINATION</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Make your blog post!</p>
+          <div class="form-group">
+            </div>
+   
+
 <%= form_with(model: post_blog, local: true) do |form| %>
+  <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+
   <% if post_blog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(post_blog.errors.count, "error") %> prohibited this post_blog from being saved:</h2>
@@ -11,27 +38,42 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="control-group field field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, class: 'form-control', placeholder:'Insert Your User Id' %>
+  </div>
+
+  <div class="control-group field field">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: 'form-control', placeholder:'Insert Your Title' %>
   </div>
-
-  <div class="field">
+  <p class="help-block text-danger"></p>
+  
+  <div class="control-group field field">
     <%= form.label :summary %>
-    <%= form.text_field :summary %>
+    <%= form.text_field :summary, class: 'form-control', placeholder:'Insert Your Summary' %>
+    <p class="help-block text-danger"></p>
   </div>
-
-  <div class="field">
+ <p class="help-block text-danger"></p>
+  
+  <div class="control-group field field">
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: 'form-control', placeholder:'Insert your content' %>
   </div>
+   <p class="help-block text-danger"></p>
 
-  <div class="field">
+ <p class="help-block text-danger"></p>
+  <div class="control-group field field">
     <%= form.label :title_image %>
-    <%= form.text_field :title_image %>
+    <%= form.text_field :title_image, class: 'form-control', placeholder:'Insert Your Link Image' %>
+    
   </div>
+  <p class="help-block text-danger"></p>
+
+              </div>
+            </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'btn btn-primary'%>
   </div>
 <% end %>

@@ -28,26 +28,27 @@
 
 <h1>Users</h1>
 
-<table>
+<table border="1">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
+      <td style="font-size: 16px;"><b><center>Number</center></b></td>
+      <td style="font-size: 16px;"><b><center>Name</center></b></td>
+      <td style="font-size: 16px;"><b><center>Email</center></b></td>
+      <td style="font-size: 16px; " colspan="3"><b><center>Action</center></b></td>
     </tr>
-  </thead>
-
-  <tbody>
     <% @users.each do |user| %>
       <tr>
         <td><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user, class: 'btn btn-primary' %></td>&nbsp;&nbsp;&nbsp;
+        <td><%= link_to 'Show', user, class: 'btn btn-primary' %></td>
         <td><%= link_to 'Edit', edit_user_path(user) , class: 'btn btn-edit' %></td>&nbsp;
         <td><%= link_to 'Destroy', user, class: 'btn btn-destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+    
+  </thead>
+
+  <tbody>
     <% end %>
   </tbody>
 </table>
@@ -62,4 +63,4 @@
       </div>
     </div>
 
-    <hr>
+    

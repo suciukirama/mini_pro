@@ -24,7 +24,7 @@
           <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
           <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
 
-            <%= form_with(model: user, local: true) do |form| %>
+            <%= form_for(controller: user, action: 'create' do|form| %>
           
             <div class="control-group">
               <div class="form-group floating-label-form-group controls">
@@ -49,19 +49,21 @@
                       <%= form.label :email %>
                       <%= form.text_field :email, class: 'form-control', placeholder:'Email' %>
                       <p class="help-block text-danger"></p>
-                      </div>
+                    </div>
 
-                      <div class="control-group field">
+					<div class="control-group field">
                       <%= form.label :password %>
-                      <%= form.text_field :password, class: 'form-control', placeholder:'password' %>
+                      <%= form.text_field :password, class: 'form-control', placeholder:'Insert Your password' %>
                       <p class="help-block text-danger"></p>
                     </div>
 
-                      <div class="control-group field">
-                      <%= form.label :password %>
-                      <%= form.text_field :password, class: 'form-control', placeholder:'retpye password' %>
+                    <div class="control-group field">
+                      <%= form.label :confirm %>
+                      <%= form.text_field :confirm, class: 'form-control', placeholder:'Retype Your password' %>
                       <p class="help-block text-danger"></p>
                     </div>
+
+
               </div>
             </div>
             
