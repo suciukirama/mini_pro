@@ -1,0 +1,47 @@
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url(<%= image_path 'img/contact-bg.jpg'%>)">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Contact Me</h1>
+              <span class="subheading">Have questions? I have answers.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>User List</p>
+          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+          <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+          <form name="sentMessage" id="contactForm" novalidate>
+            <div class="control-group">
+              <table class="table table-striped">
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                </tr>
+                  <% user.each do |user| %>
+                <tr>
+                  <td><% user.names %></td>
+                  <td><% user.emails %></td>
+                  <td><%= link_to 'Edit', pages_user_path, class: 'btn btn-primary' %>
+                  <%= link_to 'Delete ', pages_user_path, class: 'btn btn-primary', method: :delete, data: {confirm: 'Are you sure'} </td>
+                </tr>
+                    <% end %>
+              </table>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <hr>

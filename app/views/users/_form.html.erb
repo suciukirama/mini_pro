@@ -1,0 +1,78 @@
+
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url(<%= image_path 'img/contact-bg.jpg'%>)">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Contact Me</h1>
+              <span class="subheading">USER INPUT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p>Please Input Your Id</p>
+          <div class="form-group">
+            </div>
+          <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+          <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+          <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+
+            <%= form_with(model: user, local: true) do |form| %>
+          
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                  <% if user.errors.any? %>
+                     <div id="error_explanation">
+                       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                        <ul>
+                        <% user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
+
+                    <div class="control-group field">
+                      <%= form.label :id, class: 'form-control', placeholder:'Name' %>
+                      <%= form.text_field :id %>
+                    </div>
+
+                    <div class="control-group field">
+                      <%= form.label :name, class: 'form-control', placeholder:'Name' %>
+                      <%= form.text_field :name, class: 'form-control', placeholder:'Name' %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+
+                    <div class="control-group field">
+                      <%= form.label :email %>
+                      <%= form.text_field :email, class: 'form-control', placeholder:'Email' %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+
+                
+              </div>
+            </div>
+            
+            <br>
+            <div id="success"></div>
+
+  <div class="actions">
+    <%= form.submit :class => 'btn btn-primary'%>
+    <%= link_to 'Back', users_path , class: 'btn btn-primary' %>
+  </div>
+
+            
+            <% end %>          
+        </div>
+      </div>
+    </div>
+
+    <hr>
