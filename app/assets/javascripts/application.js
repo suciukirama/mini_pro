@@ -12,7 +12,6 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 //= require js/clean-blog
 //= require vendor/bootstrap/js/bootstrap.bundle

@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
  protect_from_forgery prepend: true
 
-  before_action :confirm_logged_in, :except => [:attempt]
+  # before_action :confirm_logged_in, :except => [:attempt]
 
   def menu
   	redirect_to session_new_path
