@@ -10,23 +10,17 @@
         <li class="nav-item">
           <%= link_to 'Home', root_path, class: 'nav-link' %>
         </li>
+        <li class="nav-item">
+          <%= link_to 'About', about_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sample Post', post_blogs_path, class: 'nav-link' %>
 
     <!-- Page Header -->
-<% if session[:user_id].present? %>
-            
-      <% if @current_user.is_admin == true  %>
-        <li class="nav-item">
-          <%= link_to 'Users', users_path, class: 'nav-link' %>
-        </li>
-      <% end %>
-            <li class="nav-item">  
-            <%= link_to 'My Post', mypost_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item">  
-            <%= link_to 'Profile', user_path(session[:user_id]), class: 'nav-link' %>
-            </li>
+<% if !session[:user_id].present? %>
+</li>
           <li class="nav-item">
-          <%= link_to 'Log Out', logout_path, method: :post, class: 'nav-link' %>
+          <%= link_to 'Log Out', session_logout_path, class: 'nav-link' %>
         </li>
 <% else %>
   </li>
@@ -34,11 +28,6 @@
           <%= link_to 'Log In', login_path, class: 'nav-link' %>
         </li>
  <% end %>
-
-
-
-
-
         
       </ul>
     </div>

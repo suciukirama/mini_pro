@@ -2,7 +2,7 @@ class User < ApplicationRecord
 
 	has_secure_password
 	
-	has_many :post_blogs
+	# has_many :post_blogs
 	validates :name, presence: true
 	validates :email, presence: true
 	validates_presence_of :name

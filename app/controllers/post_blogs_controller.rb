@@ -1,4 +1,6 @@
 class PostBlogsController < ApplicationController
+  before_action :confirm_logged_in, :except => [:index , :login]
+
   before_action :set_post_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /post_blogs
@@ -7,6 +9,9 @@ class PostBlogsController < ApplicationController
     @post_blogs = PostBlog.all
   end
 
+  def myblog
+    @post_blogs = PostBlog.where(user_id:  session[:user_id])
+  end
   # GET /post_blogs/1
   # GET /post_blogs/1.json
   def show

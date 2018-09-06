@@ -1,6 +1,10 @@
 class SessionController < ApplicationController
-  def new
+ protect_from_forgery prepend: true
 
+  before_action :confirm_logged_in, :except => [:attempt]
+
+  def menu
+  	redirect_to session_new_path
   end
 
   def signup
@@ -17,6 +21,43 @@ class SessionController < ApplicationController
     end
   end
 
+  def login
+    #show login html
+  end
+
+  def attempt
+    @user = User.new
+    if params[:name].present? && params[:password].present?
+      found_user = User.where(:name => params[:name]).first
+      if found_user 
+          authorized_user = found_user.authenticate(params[:password])
+      end
+    end 
+
+    if authorized_user
+      session[:user_id] = authorized_user.id
+      flash[:notice] = "You are now logged in"
+      redirect_to root_path
+
+    else
+      flash.now[:notice] = "Invalid username/password combination"
+      render('login')
+    end
+   end
+
+  def logout
+    session[:user_id] = nil
+    flash[:notice] = 'logged out'
+    redirect_to root_path
+  end
+
+  def admin
+  	@post_blog = PostBlog.all
+  end
+end
+
+  
+
 #   def create2
 # @user = User.new(user_params)
 
@@ -31,4 +72,3 @@ class SessionController < ApplicationController
 #     end
 
   # end
-end

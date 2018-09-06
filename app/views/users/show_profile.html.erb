@@ -20,30 +20,24 @@
           <div class="form-group">
 
           	<p id="notice"><%= notice %></p>
-<table class="table">
-	<tr>
-		<td><strong>Id</strong><td>
-		
-  		<td><%= @user.id %></td>
-	</tr>
 
-	<tr>
-		<td><strong>Name</strong></td>
-		<td>:</td>
-  		<td><%= @user.name %></td>
-	</tr>
-  
-	<tr>
-		<td><strong>Email</strong></td>
-		<td>:</td>
- 		<td> <%= @user.email %></td>
+<p>
+  <strong>Id:</strong>
+  <%= @user.id %>
+</p>
 
-	</tr>
-	
-</table>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
 
-<%= link_to 'Edit', edit_user_path(@user) , class: 'btn btn-primary'%> 
-<%= link_to 'Back', users_path, class: 'btn btn-primary' %>
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(session[:user_id]) %> 
+<%= link_to 'Back', users_path %>
 
 
             </div>

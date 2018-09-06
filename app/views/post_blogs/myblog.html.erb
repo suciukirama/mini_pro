@@ -16,7 +16,7 @@
 
     <!-- Main Content -->
     <section>
-      <% @post_blog.each do |post_blog| %>
+      <% @post_blogs.each do |post_blog| %>
       <div class="container">
         <div class="row">
           <div class="col-md-8">
@@ -27,7 +27,10 @@
               <div class="post-content">
                 <h3><%= post_blog.title %></h3>
                 <p><%= post_blog.summary %></p>
-                <%= link_to 'Show', post_blog , class: 'btn btn-primary btn-block'%>
+                <%= link_to 'Show', post_blog , class: 'btn btn-primary'%>
+
+                <td><%= link_to 'Edit', edit_post_blog_path(post_blog) , class: 'btn btn-primary'%></td>
+        <td><%= link_to 'Destroy', post_blog, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' %></td>
                 
               </div>
             </div>
