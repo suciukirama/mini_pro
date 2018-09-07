@@ -13,11 +13,12 @@
         </div>
       </div>
     </header>
-
+    
+<div class="container">
     <!-- Main Content -->
     <section>
       <% @post_blogs.each do |post_blog| %>
-      <div class="container">
+      
         <div class="row">
           <div class="col-md-8">
             <div class="row" style="margin: 30px;">
@@ -31,11 +32,11 @@
 
                 <td><%= link_to 'Edit', edit_post_blog_path(post_blog) , class: 'btn btn-primary'%></td>
         <td><%= link_to 'Destroy', post_blog, method: :delete, data: { confirm: 'Are you sure?' } , class: 'btn btn-primary' %></td>
-                
+             
               </div>
-            </div>
-          </div>
+           </div>
 
+          </div>
           
           
         </div>
@@ -44,7 +45,8 @@
         
         <% end %>
 
-           
+          <%= link_to 'New Post Blog', new_post_blog_path , class: 'btn btn-primary' %> 
+ 
         </div>
     </section>
 

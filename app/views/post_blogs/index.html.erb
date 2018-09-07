@@ -30,7 +30,7 @@
 <table class='table' border="1">
   <thead>
     <tr>
-
+      <td style="font-size: 16px;"><b><center>User Id</center></b></td>
       <td style="font-size: 16px;"><b><center>Title</center></b></td>
       <td style="font-size: 16px;"><b><center>Summary</center></b></td>
       <td style="font-size: 16px;"><b><center>Title Image</center></b></td>
@@ -40,8 +40,9 @@
   </thead>
 
   <tbody>
-    <% @post_blogs.each do |post_blog| %>
+    <% @post_blogs.includes(:user).each do |post_blog| %>
       <tr>
+        <td><%= post_blog.user.name %></td>
         <td><%= post_blog.title %></td>
         <td><%= post_blog.summary %></td>
          <!--<td><%= post_blog.content %></td> -->

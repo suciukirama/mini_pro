@@ -45,11 +45,9 @@
     <%= @post_blog.content %>
 </p>
 
-
-
-<%= link_to 'Edit', edit_post_blog_path(@post_blog), class: 'btn btn-edit'%> |
-<%= link_to 'Back', post_blogs_path , class: 'btn btn-primary'%>
-
+<% if session[:user_id].present? %>
+	<% if session[:user_id] == @post_blog.user_id %>
+	<%= link_to 'Edit', edit_post_blog_path(@post_blog), class: 'btn btn-edit'%> <% end%> <% end %>
 
             </div>
           <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->

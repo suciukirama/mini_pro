@@ -16,28 +16,63 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <p>Make your blog post!</p>
-          <div class="form-group">
-  	<%= form_for @user, controller: 'users', action: 'create' do |f| %>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-	
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+      <%= form_with(model: user, local: true) do |form| %>
+          
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                  <% if user.errors.any? %>
+                     <div id="error_explanation">
+                       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                        <ul>
+                        <% user.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                      </div>
+                    <% end %>
 
-	<%= f.label :password %>
-	<%= f.text_field :password %>
-	
-	<%= f.label :password_confirmation %>
-	<%= f.text_field :password_confirmation %>
+                    <div class="control-group field">
+                      <%= form.label :name, class: 'form-control', placeholder:'Name' %>
+                      <%= form.text_field :name, class: 'form-control', placeholder:'Name' %>
+                      <p class="help-block text-danger"></p>
+                    </div>
 
-	<%= f.submit "create" %>
+                    <div class="control-group field">
+                      <%= form.label :email %>
+                      <%= form.text_field :email, class: 'form-control', placeholder:'Email' %>
+                      <p class="help-block text-danger"></p>
+                      </div>
 
+                      <div class="control-group field">
+                      <%= form.label :password %>
+                      <%= form.text_field :password, class: 'form-control', placeholder:'password' %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+
+                      <div class="control-group field">
+                      <%= form.label :password %>
+                      <%= form.text_field :password, class: 'form-control', placeholder:'retpye password' %>
+                      <p class="help-block text-danger"></p>
+                    </div>
+              </div>
             </div>
+            
+            <br>
+            <div id="success"></div>
+
+  <div class="actions">
+    <%= form.submit :class => 'btn btn-primary'%>
+    <%= link_to 'Back', users_path , class: 'btn btn-primary' %>
+  </div>
+
+            
+            <% end %>   
+
+            
    
 
 </div>
 </div>
 </div>
-<% end %>
-	
+
 	

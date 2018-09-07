@@ -1,5 +1,5 @@
 class PostBlogsController < ApplicationController
-  before_action :confirm_logged_in, :except => [:index , :login]
+  before_action :confirm_logged_in
 
   before_action :set_post_blog, only: [:show, :edit, :update, :destroy]
 
@@ -7,6 +7,7 @@ class PostBlogsController < ApplicationController
   # GET /post_blogs.json
   def index
     @post_blogs = PostBlog.all
+    #@post_blogs = PostBlog.joins(:users)
   end
 
   def myblog
@@ -30,6 +31,8 @@ class PostBlogsController < ApplicationController
   # POST /post_blogs
   # POST /post_blogs.json
   def create
+   # require'pry'
+   # binding.pry
     @post_blog = PostBlog.new(post_blog_params)
 
     respond_to do |format|

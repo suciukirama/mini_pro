@@ -12,9 +12,4 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
-//= require js/clean-blog
-//= require vendor/bootstrap/js/bootstrap.bundle
-//= require vendor/jquery/jquery
-//= require js/jqBootstrapValidation
-//= require js/contact_me
+//= require vendor

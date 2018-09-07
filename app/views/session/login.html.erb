@@ -49,7 +49,10 @@
             <div id="success"></div>
 
             <div class="actions">
-              <%= submit_tag "Login", class: "btn btn-primary"%>
+              <center><%= submit_tag "Login", class: "btn btn-primary btn-block"%></center>
+              <center><p>Dont have an accout?
+              <%= link_to 'Sign In', new_user_path  %> here
+              </p></center>
             </div>
 
             

@@ -12,12 +12,16 @@ class SessionController < ApplicationController
   end
 
   def create
-  	@user = User.find_by(name: params[:user][:name])
-    if @user && @user.authenticaticate(params[:user][:password])
-      session[:user_id] = @user_id
-      redirect_to session_new_path(@user)
-    else
-      redirect_to session_sigup_path
+    # require 'pry'
+    # binding.pry
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to root_path, notice: 'User was successfully created.' }
+      else
+        format.html { render :new }
+      end
     end
   end
 
@@ -54,6 +58,9 @@ class SessionController < ApplicationController
   def admin
   	@post_blog = PostBlog.all
   end
+  def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    end
 end
 
   

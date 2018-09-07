@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   post '/attempt', to: 'session#attempt'
   #post'session/attemplogin'
-  
+  post '/sign', to: 'users#create'
   get 'session/new'
   get 'session/menu'
   get 'session/signup'

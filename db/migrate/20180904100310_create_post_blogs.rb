@@ -10,6 +10,10 @@ class CreatePostBlogs < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
+    add_index :post_blogs, :title
     add_foreign_key :post_blogs, :users, column: :user_id
+
+      
+    end
   end
 end
